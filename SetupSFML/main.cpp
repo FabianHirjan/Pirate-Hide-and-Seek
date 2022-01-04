@@ -55,7 +55,7 @@ int main() {
             case sf::Event::MouseButtonPressed:
                 if (btn1.isMouseOver(window)) {
                     window.setTitle("Pirates Game");
-                    isGameStarted = true;
+                isGameStarted = true;	
                 }
             }
         }
