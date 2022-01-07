@@ -8,27 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		CA3A1FB72783B83E00D5B72E /* Matrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CA3A1FB62783B83E00D5B72E /* Matrix.cpp */; };
+		CA4C9C022787855D00632455 /* Tilemap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CA4C9C002787855D00632455 /* Tilemap.cpp */; };
+		CA4C9C0727878D6400632455 /* tlm.png in Resources */ = {isa = PBXBuildFile; fileRef = CA4C9C0927878D6400632455 /* tlm.png */; };
 		CA6243552783AA0D00F9F430 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = CA6243542783AA0D00F9F430 /* ResourcePath.mm */; };
 		CA6243582783AA0D00F9F430 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CA6243572783AA0D00F9F430 /* main.cpp */; };
-		CA62435B2783AA0D00F9F430 /* cute_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CA62435A2783AA0D00F9F430 /* cute_image.jpg */; };
-		CA62435D2783AA0D00F9F430 /* nice_music.ogg in Resources */ = {isa = PBXBuildFile; fileRef = CA62435C2783AA0D00F9F430 /* nice_music.ogg */; };
-		CA62435F2783AA0D00F9F430 /* sansation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CA62435E2783AA0D00F9F430 /* sansation.ttf */; };
-		CA6243612783AA0D00F9F430 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = CA6243602783AA0D00F9F430 /* icon.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CA3A1FB42783B26400D5B72E /* Button.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Button.h; sourceTree = "<group>"; };
 		CA3A1FB52783B4BD00D5B72E /* Matrix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Matrix.h; sourceTree = "<group>"; };
 		CA3A1FB62783B83E00D5B72E /* Matrix.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Matrix.cpp; sourceTree = "<group>"; };
+		CA4C9C002787855D00632455 /* Tilemap.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Tilemap.cpp; path = SetupSFML/Tilemap.cpp; sourceTree = SOURCE_ROOT; };
+		CA4C9C0827878D6400632455 /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Base; path = Base.lproj/tlm.png; sourceTree = "<group>"; };
 		CA62434F2783AA0D00F9F430 /* SetupSFML.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SetupSFML.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		CA6243532783AA0D00F9F430 /* SetupSFML-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "SetupSFML-Info.plist"; path = "../SetupSFML-Info.plist"; sourceTree = "<group>"; };
 		CA6243542783AA0D00F9F430 /* ResourcePath.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
 		CA6243562783AA0D00F9F430 /* ResourcePath.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ResourcePath.hpp; sourceTree = "<group>"; };
 		CA6243572783AA0D00F9F430 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		CA62435A2783AA0D00F9F430 /* cute_image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = cute_image.jpg; path = ../cute_image.jpg; sourceTree = "<group>"; };
-		CA62435C2783AA0D00F9F430 /* nice_music.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; name = nice_music.ogg; path = ../nice_music.ogg; sourceTree = "<group>"; };
-		CA62435E2783AA0D00F9F430 /* sansation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = sansation.ttf; path = ../sansation.ttf; sourceTree = "<group>"; };
-		CA6243602783AA0D00F9F430 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = ../icon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,32 +59,13 @@
 				CA6243542783AA0D00F9F430 /* ResourcePath.mm */,
 				CA6243562783AA0D00F9F430 /* ResourcePath.hpp */,
 				CA6243572783AA0D00F9F430 /* main.cpp */,
-				CA6243592783AA0D00F9F430 /* Resources */,
-				CA6243522783AA0D00F9F430 /* Supporting Files */,
+				CA4C9C0927878D6400632455 /* tlm.png */,
 				CA3A1FB42783B26400D5B72E /* Button.h */,
 				CA3A1FB52783B4BD00D5B72E /* Matrix.h */,
 				CA3A1FB62783B83E00D5B72E /* Matrix.cpp */,
+				CA4C9C002787855D00632455 /* Tilemap.cpp */,
 			);
 			path = SetupSFML;
-			sourceTree = "<group>";
-		};
-		CA6243522783AA0D00F9F430 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				CA6243532783AA0D00F9F430 /* SetupSFML-Info.plist */,
-			);
-			path = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		CA6243592783AA0D00F9F430 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				CA62435A2783AA0D00F9F430 /* cute_image.jpg */,
-				CA62435C2783AA0D00F9F430 /* nice_music.ogg */,
-				CA62435E2783AA0D00F9F430 /* sansation.ttf */,
-				CA6243602783AA0D00F9F430 /* icon.png */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,10 +127,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA6243612783AA0D00F9F430 /* icon.png in Resources */,
-				CA62435F2783AA0D00F9F430 /* sansation.ttf in Resources */,
-				CA62435D2783AA0D00F9F430 /* nice_music.ogg in Resources */,
-				CA62435B2783AA0D00F9F430 /* cute_image.jpg in Resources */,
+				CA4C9C0727878D6400632455 /* tlm.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -185,6 +158,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA4C9C022787855D00632455 /* Tilemap.cpp in Sources */,
 				CA3A1FB72783B83E00D5B72E /* Matrix.cpp in Sources */,
 				CA6243582783AA0D00F9F430 /* main.cpp in Sources */,
 				CA6243552783AA0D00F9F430 /* ResourcePath.mm in Sources */,
@@ -192,6 +166,19 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		CA4C9C0927878D6400632455 /* tlm.png */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CA4C9C0827878D6400632455 /* Base */,
+			);
+			name = tlm.png;
+			path = SetupSFML;
+			sourceTree = SOURCE_ROOT;
+			usesTabs = 0;
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		CA6243622783AA0D00F9F430 /* Debug */ = {
