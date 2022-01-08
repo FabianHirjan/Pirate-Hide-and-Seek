@@ -25,6 +25,8 @@ public:
     matrix();
     
     void drawMatrix(int arr[49]);
+    void pickElements(int arr[9]);
+    void generateSolutions(int arr[9], int searched);
     /*
     int arr[48][48];
     int freq[6];

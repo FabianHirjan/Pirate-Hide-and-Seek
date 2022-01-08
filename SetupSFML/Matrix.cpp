@@ -13,17 +13,29 @@ matrix::matrix(){
 
 }
 
-
+/*
 void matrix::drawMatrix(int arr[49]){
     int counter = 0;
     for(int i = 0; i<=48; i++)
         if(i == 3  + (counter*7)){
             counter++;
-            arr[i] = 1;
+            arr[i] = 0;
         }
         else if(i>20 && i<28)
-            arr[i]=1;
-        else arr[i] = 0;
+            arr[i]=0;
+}
+*/
+void matrix::pickElements(int arr[9]){
+    //v2 = rand() % 100 + 1;
+    for(int i = 0; i<=8; i++){
+        arr[i] = rand()%9 + 0;
+    }
+}
+
+void matrix::generateSolutions(int arr[9], int searched){
+    
+    for(int i = 1; i<≠)
+    
 }
 /*
 void matrix::drawMatrix(int v[48][48]) { // also draws borders
