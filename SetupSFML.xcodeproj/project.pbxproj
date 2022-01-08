@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CA194DA2278A3B7200CA80DA /* calculus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CA194DA0278A3B7200CA80DA /* calculus.cpp */; };
 		CA3A1FB72783B83E00D5B72E /* Matrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CA3A1FB62783B83E00D5B72E /* Matrix.cpp */; };
 		CA4C9C022787855D00632455 /* Tilemap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CA4C9C002787855D00632455 /* Tilemap.cpp */; };
 		CA4C9C0727878D6400632455 /* tlm.png in Resources */ = {isa = PBXBuildFile; fileRef = CA4C9C0927878D6400632455 /* tlm.png */; };
@@ -15,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CA194DA0278A3B7200CA80DA /* calculus.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = calculus.cpp; sourceTree = "<group>"; };
+		CA194DA1278A3B7200CA80DA /* calculus.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = calculus.hpp; sourceTree = "<group>"; };
 		CA3A1FB42783B26400D5B72E /* Button.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Button.h; sourceTree = "<group>"; };
 		CA3A1FB52783B4BD00D5B72E /* Matrix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Matrix.h; sourceTree = "<group>"; };
 		CA3A1FB62783B83E00D5B72E /* Matrix.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Matrix.cpp; sourceTree = "<group>"; };
@@ -64,6 +67,8 @@
 				CA3A1FB52783B4BD00D5B72E /* Matrix.h */,
 				CA3A1FB62783B83E00D5B72E /* Matrix.cpp */,
 				CA4C9C002787855D00632455 /* Tilemap.cpp */,
+				CA194DA0278A3B7200CA80DA /* calculus.cpp */,
+				CA194DA1278A3B7200CA80DA /* calculus.hpp */,
 			);
 			path = SetupSFML;
 			sourceTree = "<group>";
@@ -158,6 +163,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA194DA2278A3B7200CA80DA /* calculus.cpp in Sources */,
 				CA4C9C022787855D00632455 /* Tilemap.cpp in Sources */,
 				CA3A1FB72783B83E00D5B72E /* Matrix.cpp in Sources */,
 				CA6243582783AA0D00F9F430 /* main.cpp in Sources */,
