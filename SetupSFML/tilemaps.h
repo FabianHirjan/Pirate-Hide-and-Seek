@@ -60,6 +60,7 @@ class tilemaps {
             return -1;
         sol4.setPosition(450, 400);
     }
+    
 };
 
 #endif /* tilemaps_h */

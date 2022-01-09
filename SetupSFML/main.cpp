@@ -14,7 +14,16 @@ sf::RenderWindow window(sf::VideoMode(600, 600), "Tilemap");
     //vars
     sf::Text text;
     sf::Font font;
-    //------------
+    tilemaps tm;
+    matrix mtx;
+    sf::Clock clock;
+    int level[4][9];
+    int solt[4][9];
+    int freq[4];
+    int isGameStarted = 0;
+    int minute = 0;
+    
+    // Load font from file
     if(!font.loadFromFile("/Users/fabian-andreihirjan/Desktop/SFML/SetupSFML/arial.ttf"))
         return -1;
 
@@ -22,51 +31,35 @@ sf::RenderWindow window(sf::VideoMode(600, 600), "Tilemap");
 
     // set the string to display
     text.setString("Timp scurs:");
+    text.setCharacterSize(24); // character size
 
 
-    // set the character size
-    text.setCharacterSize(24); // in pixels, not points!
 
     // set the color
     text.setFillColor(sf::Color::Red);
     // set the position
     text.setPosition(220, 70);
 
-    // Matrix and tilemap
-    /*ß
-    const int level[] =
-    {
-        0, 0, 0, 0, 0, 0,
-        1, 1, 1, 1, 1, 1
-    };
-     */
-    matrix mtx;
-    int level[4][9];
-    int solt[4][9];
-    int freq[4];
-    int isGameStarted = 0;
+ 
     
     // Generate matrix
     for(int i = 0; i<4; i++){
         mtx.pickElements(level[i]);
         mtx.generateSolutions(level[i], i+1, solt[i], freq);
     }
-    //
+    
+    // Create start game button
     Button btn1("START", { 100, 50 }, 30, sf::Color::Green, sf::Color::Black);
     btn1.setFont(font);
     btn1.setPosition({ 100, 300 });
     btn1.setSize(20);
-    //
-    //mtx.drawMatrix(level);
-    tilemaps tm;
-    tm.StartGame(level, solt);
-    /*
-
-    */
-
+    
+    
+    // Start game
+    
     
     // run the main loop
-    sf::Clock clock;
+
 
 
 std::string str = to_string(5.f);
@@ -92,14 +85,22 @@ std::string str = to_string(5.f);
                             break;
                         case sf::Event::MouseButtonPressed:
                             if (btn1.isMouseOver(window)) {
+                                tm.StartGame(level, solt);
                                 window.setTitle("Pirates Game");
                             isGameStarted = true;
+                                clock.restart();
+                                minute = 0;
                             }
                         }
         }
         
         sf::Time elapsed = clock.getElapsedTime();
-        text.setString("Timp Scurs : " + to_string(int(elapsed.asSeconds())));
+        if(int(elapsed.asSeconds()) == 60)
+                {
+                    clock.restart();
+                    minute++;
+                }
+                text.setString("Timp Scurs: " + to_string(minute) + ":" + to_string(int(elapsed.asSeconds())));
         // draw the map
         window.clear();
         if(isGameStarted){
