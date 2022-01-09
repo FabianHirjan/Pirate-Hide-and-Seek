@@ -16,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CA17CFE9278B3FA300642EB1 /* tilemaps.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = tilemaps.h; sourceTree = "<group>"; };
 		CA194DA0278A3B7200CA80DA /* calculus.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = calculus.cpp; sourceTree = "<group>"; };
 		CA194DA1278A3B7200CA80DA /* calculus.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = calculus.hpp; sourceTree = "<group>"; };
 		CA3A1FB42783B26400D5B72E /* Button.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Button.h; sourceTree = "<group>"; };
@@ -69,6 +70,7 @@
 				CA4C9C002787855D00632455 /* Tilemap.cpp */,
 				CA194DA0278A3B7200CA80DA /* calculus.cpp */,
 				CA194DA1278A3B7200CA80DA /* calculus.hpp */,
+				CA17CFE9278B3FA300642EB1 /* tilemaps.h */,
 			);
 			path = SetupSFML;
 			sourceTree = "<group>";

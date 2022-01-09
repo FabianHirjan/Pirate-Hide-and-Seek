@@ -5,11 +5,12 @@
 #include "Tilemap.cpp"
 #include <string>
 #include <sstream>
+#include "tilemaps.h"
 
 int main() {
 
 sf::RenderWindow window(sf::VideoMode(600, 600), "Tilemap");
-    // Text
+    
     //vars
     sf::Text text;
     sf::Font font;
@@ -40,44 +41,25 @@ sf::RenderWindow window(sf::VideoMode(600, 600), "Tilemap");
     };
      */
     matrix mtx;
-    // todo - modify it in a matrix
-    int level1[9];
-    int level2[9];
-    int level3[9];
-    int level4[9];
-    int solt1[9];
-    mtx.pickElements(level1);
-    mtx.pickElements(level2);
-    mtx.pickElements(level3);
-    mtx.pickElements(level4);
-    mtx.generateSolutions(level1, 2, solt1);
-    //mtx.drawMatrix(level);
-    Tilemap map;
-    if (!map.load("/Users/fabian-andreihirjan/Desktop/SFML/SetupSFML/tlm.png", sf::Vector2u(32, 32), level1, 3, 3))
-        return -1;
-    map.setPosition(188, 172);
-
-    //------------------------
-    Tilemap map2;
-    if (!map2.load("/Users/fabian-andreihirjan/Desktop/SFML/SetupSFML/tlm.png", sf::Vector2u(32, 32), level2, 3, 3))
-        return -1;
-    map2.setPosition(300, 172);
-    //
-    Tilemap map3;
-    if (!map3.load("/Users/fabian-andreihirjan/Desktop/SFML/SetupSFML/tlm.png", sf::Vector2u(32, 32), level3, 3, 3))
-        return -1;
-    map3.setPosition(188, 300);
-    //
-    Tilemap map4;
-    if (!map4.load("/Users/fabian-andreihirjan/Desktop/SFML/SetupSFML/tlm.png", sf::Vector2u(32, 32), level4, 3, 3))
-        return -1;
-    map4.setPosition(300, 300);
+    int level[4][9];
+    int solt[4][9];
+    int freq[4];
+    int isGameStarted = 0;
     
-    // Sol 1
-    Tilemap sol1;
-    if (!sol1.load("/Users/fabian-andreihirjan/Desktop/SFML/SetupSFML/tlm.png", sf::Vector2u(32, 32), solt1, 3, 3))
-        return -1;
-    sol1.setPosition(450, 300);
+    // Generate matrix
+    for(int i = 0; i<4; i++){
+        mtx.pickElements(level[i]);
+        mtx.generateSolutions(level[i], i+1, solt[i], freq);
+    }
+    //
+    Button btn1("START", { 100, 50 }, 30, sf::Color::Green, sf::Color::Black);
+    btn1.setFont(font);
+    btn1.setPosition({ 100, 300 });
+    btn1.setSize(20);
+    //
+    //mtx.drawMatrix(level);
+    tilemaps tm;
+    tm.StartGame(level, solt);
     /*
 
     */
@@ -96,19 +78,43 @@ std::string str = to_string(5.f);
         sf::Event event;
         while (window.pollEvent(event))
         {
-            if(event.type == sf::Event::Closed)
-                window.close();
+            switch (event.type) {
+
+                        case sf::Event::Closed:
+                            window.close();
+                        case sf::Event::MouseMoved:
+                            if (btn1.isMouseOver(window)) {
+                                btn1.setBackColor(sf::Color::Magenta);
+                            }
+                            else {
+                                btn1.setBackColor(sf::Color::Green);
+                            }
+                            break;
+                        case sf::Event::MouseButtonPressed:
+                            if (btn1.isMouseOver(window)) {
+                                window.setTitle("Pirates Game");
+                            isGameStarted = true;
+                            }
+                        }
         }
+        
         sf::Time elapsed = clock.getElapsedTime();
         text.setString("Timp Scurs : " + to_string(int(elapsed.asSeconds())));
         // draw the map
         window.clear();
-        window.draw(map);
-        window.draw(map2);
-        window.draw(map3);
-        window.draw(map4);
-        window.draw(text);
-        window.draw(sol1);
+        if(isGameStarted){
+            window.draw(tm.map);
+            window.draw(tm.map2);
+            window.draw(tm.map3);
+            window.draw(tm.map4);
+            window.draw(text);
+            window.draw(tm.sol1);
+            window.draw(tm.sol2);
+            window.draw(tm.sol3);
+            window.draw(tm.sol4);
+        }
+        else
+        btn1.drawTo(window);
         window.display();
     }
 

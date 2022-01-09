@@ -19,7 +19,8 @@ public:
     
     void drawMatrix(int arr[49]);
     void pickElements(int arr[9]);
-    void generateSolutions(int arr[9], int searched, int mat[9]);
+    void generateSolutions(int arr[9], int searched, int mat[9], int freq[4]);
+    void picklegend(int arr[9], int freq[4]);
     
     
 };

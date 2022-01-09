@@ -21,6 +21,11 @@ public:
     void setFont(sf::Font &fonts) {
         text.setFont(fonts);
     }
+    
+    void setSize(int size){
+        text.setCharacterSize(size);
+    }
+    
     // Fill color
     void setBackColor(sf::Color color) {
         button.setFillColor(color);

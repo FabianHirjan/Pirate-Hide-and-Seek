@@ -7,7 +7,7 @@
 //
 
 #include "calculus.hpp"
-#define prob 50
+#define prob 35
 
 
 int calculus::pickProb(int from, int to){
@@ -16,7 +16,7 @@ int calculus::pickProb(int from, int to){
     // to be changed
     int pick = rand()%100 + 0;
     
-    if(pick < prob){
+    if(pick < 35){
         return 0;
     }
     else return rand()%to + from;
