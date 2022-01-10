@@ -23,7 +23,7 @@ void matrix::pickElements(int arr[9]){
 
 void matrix::generateSolutions(int arr[9], int searched, int mat[9], int freq[4]){
     for(int i = 0; i<=8; i++){
-        if(arr[i] != searched)
+        if(arr[i] != searched && arr[i] != 0)
             mat[i] = 0;
         else{
             freq[searched]++;
