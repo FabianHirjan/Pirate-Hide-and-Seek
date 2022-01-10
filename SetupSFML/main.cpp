@@ -7,10 +7,11 @@
 #include "Matrix.h"
 #include "Tilemap.cpp"
 #include "tilemaps.h"
+#include <time.h>
 
 int main()
 {
-
+    srand(time(NULL));
     sf::RenderWindow window(sf::VideoMode(600, 600), "- Pirates Hide And Seek -");
 
     //vars
@@ -69,8 +70,8 @@ int main()
     std::string str = to_string(5.f);
     sf::Music music;
 
-     if (!music.openFromFile("/Users/fabian-andreihirjan/Desktop/SFML/SetupSFML/SetupSFML/mel.wav"))
-         return -1;
+     //if (!music.openFromFile("/Users/fabian-andreihirjan/Desktop/SFML/SetupSFML/SetupSFML/mel.wav"))
+       //  return -1;
 
      music.play();
     bool isLongPressActiv = false, sq1 = false, sq2 = false, sq3 = false, sq4 = false;
