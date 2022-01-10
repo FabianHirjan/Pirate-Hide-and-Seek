@@ -20,27 +20,44 @@ int main()
     tilemaps tm;
     matrix mtx;
     sf::Clock clock;
+    sf::Music music;
+
     int level[4][9];
     int solt[4][9];
     int freq[4];
     int legend[4];
     int isGameStarted = 0;
     int minute = 0;
+    
+    bool isLongPressActiv = false, sq1 = false, sq2 = false, sq3 = false, sq4 = false;
 
+    
+    
     // Load font from file
     if(!font.loadFromFile("/Users/fabian-andreihirjan/Desktop/SFML/SetupSFML/SetupSFML/arial.ttf"))
         return -1;
+    if (!music.openFromFile("/Users/fabian-andreihirjan/Desktop/SFML/SetupSFML/SetupSFML/mel.wav"))
+        return -1;
 
+    // Load the enviroment
+        // Text
     text.setFont(font);
     text.setCharacterSize(24); // character size
-
-
-
-    // set the color
     text.setFillColor(sf::Color::Red);
-    // set the position
     text.setPosition(220, 70);
-
+        // Music
+    music.play();
+        // Buttons
+            // Create start game button
+    Button btn1("START", { 100, 50 }, 30, sf::Color::Green, sf::Color::Black);
+    btn1.setFont(font);
+    btn1.setPosition({ 250, 200 });
+    btn1.setSize(25);
+            // Exit button
+    Button btn2("EXIT", { 100, 50 }, 30, sf::Color::Green, sf::Color::Black);
+    btn2.setFont(font);
+    btn2.setPosition({ 250, 270 });
+    btn2.setSize(25);
 
 
     // Generate matrix
@@ -52,32 +69,8 @@ int main()
         mtx.generateSolutions(level[i], copie, solt[i]);
     }
 
-    // Create start game button
-    Button btn1("START", { 100, 50 }, 30, sf::Color::Green, sf::Color::Black);
-    btn1.setFont(font);
-    btn1.setPosition({ 250, 200 });
-    btn1.setSize(25);
-    Button btn2("EXIT", { 100, 50 }, 30, sf::Color::Green, sf::Color::Black);
-    btn2.setFont(font);
-    btn2.setPosition({ 250, 270 });
-    btn2.setSize(25);
-
-
-    // Start game
-
-
-    // run the main loop
-
-
-
-    std::string str = to_string(5.f);
-    sf::Music music;
-
-     if (!music.openFromFile("/Users/fabian-andreihirjan/Desktop/SFML/SetupSFML/SetupSFML/mel.wav"))
-         return -1;
-
-     music.play();
-    bool isLongPressActiv = false, sq1 = false, sq2 = false, sq3 = false, sq4 = false;
+    
+   
     while (window.isOpen())
     {
         // handle events
