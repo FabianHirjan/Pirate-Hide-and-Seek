@@ -55,7 +55,7 @@ int main()
     btn1.setSize(25);
     Button btn2("EXIT", { 100, 50 }, 30, sf::Color::Green, sf::Color::Black);
     btn2.setFont(font);
-    btn2.setPosition({ 400, 100 });
+    btn2.setPosition({ 250, 270 });
     btn2.setSize(25);
 
 
@@ -128,10 +128,13 @@ int main()
                 if (btn1.isMouseOver(window))
                 {
                     tm.StartGame(level, solt);
-                    window.setTitle("Pirates Game");
                     isGameStarted = true;
                     clock.restart();
                     minute = 0;
+                }
+                if (btn2.isMouseOver(window))
+                {
+                    window.close();
                 }
                 break;
 
@@ -155,6 +158,14 @@ int main()
                 else
                 {
                     btn1.setBackColor(sf::Color::Green);
+                }
+                if (btn2.isMouseOver(window))
+                {
+                    btn2.setBackColor(sf::Color::Magenta);
+                }
+                else
+                {
+                    btn2.setBackColor(sf::Color::Green);
                 }
                 break;
 
@@ -192,9 +203,14 @@ int main()
             window.draw(tm.sol2);
             window.draw(tm.sol3);
             window.draw(tm.sol4);
+            
         }
-        else
+        else{
             btn1.drawTo(window);
+            btn2.drawTo(window);
+        }
+            
+           
         window.display();
     }
 
