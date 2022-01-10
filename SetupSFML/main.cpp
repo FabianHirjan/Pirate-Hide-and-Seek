@@ -22,6 +22,15 @@ int main()
     matrix mtx;
     sf::Clock clock;
     sf::Music music;
+    sf::Texture fundal;
+            fundal.loadFromFile("/Users/fabian-andreihirjan/Desktop/SFML/SetupSFML/SetupSFML/fundal.png");
+        sf::Sprite backg(fundal);
+    sf::Texture fundaljoc;
+            fundaljoc.loadFromFile("/Users/fabian-andreihirjan/Desktop/SFML/SetupSFML/SetupSFML/fundaljoc.png");
+        sf::Sprite bck(fundaljoc);
+
+
+    
     int legend[4];
     int level[4][9];
     int solt[4][9];
@@ -38,6 +47,8 @@ int main()
         return -1;
     if (!music.openFromFile("/Users/fabian-andreihirjan/Desktop/SFML/SetupSFML/SetupSFML/mel.wav"))
         return -1;
+    fundal.loadFromFile("/Users/fabian-andreihirjan/Desktop/SFML/SetupSFML/SetupSFML/fundal.png");
+           
 
     // Load the enviroment
         // Text
@@ -203,6 +214,7 @@ int main()
         window.clear();
         if(isGameStarted)
         {
+            window.draw(bck);
             window.draw(tm.map);
             window.draw(tm.map2);
             window.draw(tm.map3);
@@ -215,10 +227,14 @@ int main()
             window.draw(tm.legenda);
             window.draw(lgd);
             
+
+            
         }
         else{
+            window.draw(backg);
             btn1.drawTo(window);
             btn2.drawTo(window);
+            
         }
             
            
