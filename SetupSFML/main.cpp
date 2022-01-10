@@ -12,20 +12,20 @@
 int main()
 {
     srand(time(0));
-    sf::RenderWindow window(sf::VideoMode(1000, 1000), "- Pirates Hide And Seek -");
+    sf::RenderWindow window(sf::VideoMode(600, 600), "- Pirates Hide And Seek -");
 
     //vars
     sf::Text text;
+    sf::Text lgd;
     sf::Font font;
     tilemaps tm;
     matrix mtx;
     sf::Clock clock;
     sf::Music music;
-
+    int legend[4];
     int level[4][9];
     int solt[4][9];
-    int freq[4];
-    int legend[4];
+ 
     int isGameStarted = 0;
     int minute = 0;
     
@@ -45,6 +45,12 @@ int main()
     text.setCharacterSize(24); // character size
     text.setFillColor(sf::Color::Red);
     text.setPosition(220, 70);
+        // Text 2
+    lgd.setFont(font);
+    lgd.setString("Legenda");
+    lgd.setCharacterSize(24);
+    lgd.setFillColor(sf::Color::Red);
+    lgd.setPosition(60, 175);
         // Music
     music.play();
         // Buttons
@@ -66,9 +72,15 @@ int main()
      mtx.pickElements(level[i]);
     
         //cout << "DEBUG " << mtx.pickLegend(level[i], legend, i); << endl;
-        mtx.generateSolutions(level[i], mtx.pickLegend(level[i], legend, i), solt[i]);
+        mtx.generateSolutions(level[i], mtx.pickLegend(level[i], i), solt[i], legend, i);
     }
-
+    cout << endl;
+    for(int i = 0; i<4; i++)
+     {
+         cout << legend[i] << " ";
+     }
+    cout << endl;
+   // mtx.rotateMatrix(level[1]);
     
    
     while (window.isOpen())
@@ -124,7 +136,7 @@ int main()
                 isLongPressActiv = true;
                 if (btn1.isMouseOver(window))
                 {
-                    tm.StartGame(level, solt);
+                    tm.StartGame(level, solt, legend);
                     isGameStarted = true;
                     clock.restart();
                     minute = 0;
@@ -200,6 +212,8 @@ int main()
             window.draw(tm.sol2);
             window.draw(tm.sol3);
             window.draw(tm.sol4);
+            window.draw(tm.legenda);
+            window.draw(lgd);
             
         }
         else{

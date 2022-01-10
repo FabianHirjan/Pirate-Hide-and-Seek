@@ -24,12 +24,14 @@ void matrix::pickElements(int arr[9]){
     }
 }
 
-int matrix::pickLegend(int arr[9], int legend[4], int i){
+int matrix::pickLegend(int arr[9], int i){
     int picked = 1;
     while(picked < 9){
         for(int i = rand()%9+1; i<9; i++){
-            if(picked == arr[i])
+            if(picked == arr[i]){
                 return picked;
+            }
+               
             }
         picked++;
     }
@@ -42,17 +44,31 @@ int matrix::pickLegend(int arr[9], int legend[4], int i){
 
 
 
-void matrix::generateSolutions(int arr[9], int searched, int mat[9]){
+void matrix::generateSolutions(int arr[9], int searched, int mat[9], int lgd[4], int index){
     int isFound = 0;
     for(int i = 0; i<=8; i++){
         if((arr[i] != searched && arr[i] != 0) || (arr[i] == searched && isFound == 1))
             mat[i] = 0;
         else if(arr[i] == searched || arr[i] == 0){
-            if(arr[i] == searched)
+            if(arr[i] == searched){
                 isFound = 1;
+                lgd[index] = searched;
+            }
+                
             mat[i] = 69;
     }
     
 }
     
+}
+
+void matrix::rotateMatrix(int arr[9]){
+    int temp;
+    int i,j;
+    for (i = 0, j = 9 - 1; i < 9/2; i++, j--)
+      {
+          temp = arr[i];
+          arr[i] = arr[j];
+          arr[j] = temp;
+      }
 }

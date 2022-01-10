@@ -22,8 +22,9 @@ class tilemaps {
     Tilemap sol2;
     Tilemap sol3;
     Tilemap sol4;
+    Tilemap legenda;
     
-    void StartGame(int level[4][9], int solt[4][9]){
+    void StartGame(int level[4][9], int solt[4][9], int legend[4]){
         
         if (!map.load("/Users/fabian-andreihirjan/Desktop/SFML/SetupSFML/tlm.png", sf::Vector2u(32, 32), level[0], 3, 3))
             return -1;
@@ -59,6 +60,9 @@ class tilemaps {
         if (!sol4.load("/Users/fabian-andreihirjan/Desktop/SFML/SetupSFML/tlm.png", sf::Vector2u(32, 32), solt[3], 3, 3))
             return -1;
         sol4.setPosition(450, 400);
+        if (!legenda.load("/Users/fabian-andreihirjan/Desktop/SFML/SetupSFML/tlm.png", sf::Vector2u(32, 32), legend, 1, 4))
+            return -1;
+        legenda.setPosition(100, 225);
     }
     
 };
