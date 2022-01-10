@@ -1,8 +1,5 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
-#include <iostream>
-#include <sstream>
-#include <string>
 #include "Button.h"
 #include "Matrix.h"
 #include "Tilemap.cpp"
@@ -71,7 +68,7 @@ int main()
         // Music
     music.play();
         // Buttons
-            // Create start game button
+    // Create start game button
     Button btn1("START", { 100, 50 }, 30, sf::Color::Green, sf::Color::Black);
     btn1.setFont(font);
     btn1.setPosition({ 250, 200 });
