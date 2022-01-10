@@ -28,14 +28,20 @@ int main()
     sf::Texture fundaljoc;
             fundaljoc.loadFromFile("/Users/fabian-andreihirjan/Desktop/SFML/SetupSFML/SetupSFML/fundaljoc.png");
         sf::Sprite bck(fundaljoc);
+    
+    sf::Texture winner;
+            winner.loadFromFile("/Users/fabian-andreihirjan/Desktop/SFML/SetupSFML/SetupSFML/win.png");
+        sf::Sprite win(winner);
 
 
     
     int legend[4];
     int level[4][9];
     int solt[4][9];
+    int matched[4];
  
     int isGameStarted = 0;
+    int isGameFinished = 0;
     int minute = 0;
     
     bool isLongPressActiv = false, sq1 = false, sq2 = false, sq3 = false, sq4 = false;
@@ -75,6 +81,11 @@ int main()
     btn2.setFont(font);
     btn2.setPosition({ 250, 270 });
     btn2.setSize(25);
+    
+    Button btn3("Main Menu", { 125,50 }, 30, sf::Color::Green, sf::Color::Black);
+    btn3.setFont(font);
+    btn3.setPosition({ 250, 500 });
+    btn3.setSize(25);
 
 
     // Generate matrix
@@ -91,7 +102,6 @@ int main()
          cout << legend[i] << " ";
      }
     cout << endl;
-   // mtx.rotateMatrix(level[1]);
     
    
     while (window.isOpen())
@@ -152,6 +162,15 @@ int main()
                     clock.restart();
                     minute = 0;
                 }
+                if (btn3.isMouseOver(window))
+                {
+                    //tm.StartGame(level, solt, legend);
+                    isGameStarted = false;
+                    isGameFinished = false;
+                    tm.resetGame(matched);
+                    //clock.restart();
+                    //minute = 0;
+                }
                 if (btn2.isMouseOver(window))
                 {
                     window.close();
@@ -159,6 +178,7 @@ int main()
                 break;
 
             }
+
             case sf::Event::MouseMoved:
                 if(isLongPressActiv == true)
                 {
@@ -187,6 +207,14 @@ int main()
                 {
                     btn2.setBackColor(sf::Color::Green);
                 }
+                if (btn3.isMouseOver(window))
+                {
+                    btn3.setBackColor(sf::Color::Magenta);
+                }
+                else
+                {
+                    btn3.setBackColor(sf::Color::Green);
+                }
                 break;
 
             // verif daca coord is peste 1 din cele 4 matr
@@ -196,10 +224,35 @@ int main()
                 sq2 = false;
                 sq3 = false;
                 sq4 = false;
-                tm.sol1.setPosition(450, 100);
-                tm.sol2.setPosition(450, 200);
-                tm.sol3.setPosition(450, 300);
-                tm.sol4.setPosition(450, 400);
+                    if(tm.sol1.getPosition() == tm.map.getPosition()){
+                        cout << "matched 1";
+                        tm.sol1.setPosition(tm.map.getPosition());
+                        matched[0] = 0;
+                        if(tm.champion(matched))
+                            isGameFinished = 1;
+                    }
+                    if(tm.sol2.getPosition() == tm.map2.getPosition()){
+                        cout << "matched 2";
+                        tm.sol2.setPosition(tm.map2.getPosition());
+                        matched[1] = 0;
+                        if(tm.champion(matched))
+                            isGameFinished = 1;
+                    }
+                    if(tm.sol3.getPosition() == tm.map3.getPosition()){
+                        cout << "matched 3";
+                        tm.sol3.setPosition(tm.map3.getPosition());
+                        matched[2] = 0;
+                        if(tm.champion(matched))
+                            isGameFinished = 1;
+                    }
+                    if(tm.sol4.getPosition() == tm.map4.getPosition()){
+                        cout << "matched 4";
+                        tm.sol4.setPosition(tm.map4.getPosition());
+                        matched[3] = 0;
+                        if(tm.champion(matched))
+                            isGameFinished = 1;
+                    }
+                    
             }
         }
 
@@ -209,12 +262,14 @@ int main()
             clock.restart();
             minute++;
         }
+        if(!isGameFinished)
         text.setString("Timp Scurs: " + to_string(minute) + ":" + to_string(int(elapsed.asSeconds())));
         // draw the map
         window.clear();
         if(isGameStarted)
         {
             window.draw(bck);
+            btn3.drawTo(window);
             window.draw(tm.map);
             window.draw(tm.map2);
             window.draw(tm.map3);
@@ -235,6 +290,11 @@ int main()
             btn1.drawTo(window);
             btn2.drawTo(window);
             
+        }
+        
+        if(isGameFinished){
+            window.draw(win);
+            btn3.drawTo(window);
         }
             
            

@@ -64,6 +64,19 @@ class tilemaps {
             return -1;
         legenda.setPosition(100, 225);
     }
+    bool champion(int matchedPieces[4]){
+        int ok = 1;
+        for(int i = 0; i<=3; i++){
+            if(matchedPieces[i] != 0)
+                ok = 0;
+        }
+        return ok;
+    }
+    void resetGame(int matchedPieces[4]){
+        for(int i = 0; i<=3; i++){
+            matchedPieces[i] = 1;
+        }
+    }
     
 };
 
