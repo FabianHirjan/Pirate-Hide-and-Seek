@@ -12,7 +12,7 @@
 int main()
 {
     srand(time(NULL));
-    sf::RenderWindow window(sf::VideoMode(600, 600), "- Pirates Hide And Seek -");
+    sf::RenderWindow window(sf::VideoMode(1000, 1000), "- Pirates Hide And Seek -");
 
     //vars
     sf::Text text;
@@ -23,6 +23,7 @@ int main()
     int level[4][9];
     int solt[4][9];
     int freq[4];
+    int legend[4];
     int isGameStarted = 0;
     int minute = 0;
 
@@ -43,10 +44,12 @@ int main()
 
 
     // Generate matrix
-    for(int i = 0; i<4; i++)
+   for(int i = 0; i<4; i++)
     {
-        mtx.pickElements(level[i]);
-        mtx.generateSolutions(level[i], i+1, solt[i], freq);
+     mtx.pickElements(level[i], freq);
+    int copie = mtx.pickLegend(level[i], legend, i);
+        cout << "DEBUG " << copie << endl;
+        mtx.generateSolutions(level[i], copie, solt[i]);
     }
 
     // Create start game button
@@ -70,8 +73,8 @@ int main()
     std::string str = to_string(5.f);
     sf::Music music;
 
-     //if (!music.openFromFile("/Users/fabian-andreihirjan/Desktop/SFML/SetupSFML/SetupSFML/mel.wav"))
-       //  return -1;
+     if (!music.openFromFile("/Users/fabian-andreihirjan/Desktop/SFML/SetupSFML/SetupSFML/mel.wav"))
+         return -1;
 
      music.play();
     bool isLongPressActiv = false, sq1 = false, sq2 = false, sq3 = false, sq4 = false;

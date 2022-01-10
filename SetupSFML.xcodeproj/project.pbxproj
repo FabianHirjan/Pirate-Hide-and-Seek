@@ -10,7 +10,6 @@
 		CA194DA2278A3B7200CA80DA /* calculus.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CA194DA0278A3B7200CA80DA /* calculus.cpp */; };
 		CA3A1FB72783B83E00D5B72E /* Matrix.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CA3A1FB62783B83E00D5B72E /* Matrix.cpp */; };
 		CA4C9C022787855D00632455 /* Tilemap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CA4C9C002787855D00632455 /* Tilemap.cpp */; };
-		CA4C9C0727878D6400632455 /* tlm.png in Resources */ = {isa = PBXBuildFile; fileRef = CA4C9C0927878D6400632455 /* tlm.png */; };
 		CA6243552783AA0D00F9F430 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = CA6243542783AA0D00F9F430 /* ResourcePath.mm */; };
 		CA6243582783AA0D00F9F430 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = CA6243572783AA0D00F9F430 /* main.cpp */; };
 /* End PBXBuildFile section */
@@ -23,7 +22,6 @@
 		CA3A1FB52783B4BD00D5B72E /* Matrix.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Matrix.h; sourceTree = "<group>"; };
 		CA3A1FB62783B83E00D5B72E /* Matrix.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Matrix.cpp; sourceTree = "<group>"; };
 		CA4C9C002787855D00632455 /* Tilemap.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = Tilemap.cpp; path = SetupSFML/Tilemap.cpp; sourceTree = SOURCE_ROOT; };
-		CA4C9C0827878D6400632455 /* Base */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Base; path = Base.lproj/tlm.png; sourceTree = "<group>"; };
 		CA62434F2783AA0D00F9F430 /* SetupSFML.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SetupSFML.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA6243542783AA0D00F9F430 /* ResourcePath.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
 		CA6243562783AA0D00F9F430 /* ResourcePath.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ResourcePath.hpp; sourceTree = "<group>"; };
@@ -63,7 +61,6 @@
 				CA6243542783AA0D00F9F430 /* ResourcePath.mm */,
 				CA6243562783AA0D00F9F430 /* ResourcePath.hpp */,
 				CA6243572783AA0D00F9F430 /* main.cpp */,
-				CA4C9C0927878D6400632455 /* tlm.png */,
 				CA3A1FB42783B26400D5B72E /* Button.h */,
 				CA3A1FB52783B4BD00D5B72E /* Matrix.h */,
 				CA3A1FB62783B83E00D5B72E /* Matrix.cpp */,
@@ -134,7 +131,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA4C9C0727878D6400632455 /* tlm.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,19 +170,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		CA4C9C0927878D6400632455 /* tlm.png */ = {
-			isa = PBXVariantGroup;
-			children = (
-				CA4C9C0827878D6400632455 /* Base */,
-			);
-			name = tlm.png;
-			path = SetupSFML;
-			sourceTree = SOURCE_ROOT;
-			usesTabs = 0;
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		CA6243622783AA0D00F9F430 /* Debug */ = {
