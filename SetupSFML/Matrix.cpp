@@ -9,38 +9,47 @@
 #include "Matrix.h"
 #include <SFML/Graphics.hpp>
 #include "calculus.hpp"
+#include <time.h>
 
 matrix::matrix(){
 
 }
 calculus clc;
-void matrix::pickElements(int arr[9], int freq[9]){
+void matrix::pickElements(int arr[9]){
     //v2 = rand() % 100 + 1;
     int picked;
     for(int i = 0; i<=8; i++){
         picked = clc.pickProb(1, 9);
         arr[i] = picked;
-        freq[picked]++;
     }
 }
 
 int matrix::pickLegend(int arr[9], int legend[4], int i){
-    int picked;
-    picked = rand()%9 + 1;
-    while(arr[picked] == 0)
-        picked = rand()%9 + 1;
-        return picked;
-        
+    int picked = 1;
+    while(picked < 9){
+        for(int i = rand()%9+1; i<9; i++){
+            if(picked == arr[i])
+                return picked;
+            }
+        picked++;
     }
+    return picked;
+    }
+        
+    
+    
+    
 
 
 
 void matrix::generateSolutions(int arr[9], int searched, int mat[9]){
-    
+    int isFound = 0;
     for(int i = 0; i<=8; i++){
-        if(arr[i] != searched && arr[i] != 0)
+        if((arr[i] != searched && arr[i] != 0) || (arr[i] == searched && isFound == 1))
             mat[i] = 0;
-        else{
+        else if(arr[i] == searched || arr[i] == 0){
+            if(arr[i] == searched)
+                isFound = 1;
             mat[i] = 69;
     }
     

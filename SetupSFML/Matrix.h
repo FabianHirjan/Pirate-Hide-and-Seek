@@ -18,7 +18,7 @@ public:
     matrix();
     
     void drawMatrix(int arr[49]);
-    void pickElements(int arr[9], int freq[9]);
+    void pickElements(int arr[9]);
     void generateSolutions(int arr[9], int searched, int mat[9]);
     int pickLegend(int arr[9], int legend[9], int i);
     

@@ -11,7 +11,7 @@
 
 int main()
 {
-    srand(time(NULL));
+    srand(time(0));
     sf::RenderWindow window(sf::VideoMode(1000, 1000), "- Pirates Hide And Seek -");
 
     //vars
@@ -63,10 +63,10 @@ int main()
     // Generate matrix
    for(int i = 0; i<4; i++)
     {
-     mtx.pickElements(level[i], freq);
-    int copie = mtx.pickLegend(level[i], legend, i);
-        cout << "DEBUG " << copie << endl;
-        mtx.generateSolutions(level[i], copie, solt[i]);
+     mtx.pickElements(level[i]);
+    
+        //cout << "DEBUG " << mtx.pickLegend(level[i], legend, i); << endl;
+        mtx.generateSolutions(level[i], mtx.pickLegend(level[i], legend, i), solt[i]);
     }
 
     
